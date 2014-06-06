@@ -1,0 +1,18 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-12.04
+
+suites:
+  - name: default
+    environment: 'test-kitchen'
+    run_list:
+      - recipe[newrelic_monitoring]
+    attributes:
+      newrelic:
+        license_key: "BY_ATTRIBUTE"
